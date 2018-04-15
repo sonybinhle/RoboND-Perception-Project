@@ -116,7 +116,7 @@ def cluster_mask_point_cloud(cluster_indices, white_cloud):
 # Callback function for your Point Cloud Subscriber
 def pcl_callback(pcl_msg):
 
-# Exercise-2 TODOs:
+# Exercise-1 TODOs:
 
     # TODO: Convert ROS msg to PCL data
     pcl_data = ros_to_pcl(pcl_msg)
@@ -137,6 +137,8 @@ def pcl_callback(pcl_msg):
     # TODO: Extract inliers and outliers
     extracted_inliers = points.extract(inliers, negative=False)
     extracted_outliers = points.extract(inliers, negative=True)
+
+# Exercise-2 TODOs:
 
     # TODO: Euclidean Clustering
     cluster_indices, white_cloud = euclidean_clustering(extracted_outliers)
