@@ -265,16 +265,16 @@ def pr2_mover(object_list):
         # Wait for 'pick_place_routine' service to come up
         # rospy.wait_for_service('pick_place_routine')
 
-        # try:
+        try:
             # pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
 
             # TODO: Insert your message variables to be sent as a service request
-            # resp = pick_place_routine(TEST_SCENE_NUM, OBJECT_NAME, WHICH_ARM, PICK_POSE, PLACE_POSE)
+            resp = pick_place_routine(TEST_SCENE_NUM, OBJECT_NAME, WHICH_ARM, PICK_POSE, PLACE_POSE)
 
-            # print ("Response: ",resp.success)
+            print ("Response: ",resp.success)
 
-        # except rospy.ServiceException, e:
-            # print "Service call failed: %s"%e
+        except rospy.ServiceException, e:
+            print "Service call failed: %s"%e
 
     # TODO: Output your request parameters into output yaml file
     send_to_yaml('/home/robond/catkin_ws/src/RoboND-Perception-Project/pr2_robot/scripts/output_{}.yaml'.format(TEST_NUM), dict_list)
