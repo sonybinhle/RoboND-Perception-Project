@@ -263,7 +263,7 @@ def pr2_mover(object_list):
         dict_list.append(yaml_dict)    
 
         # Wait for 'pick_place_routine' service to come up
-        # rospy.wait_for_service('pick_place_routine')
+        rospy.wait_for_service('pick_place_routine')
 
         try:
             pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
@@ -309,4 +309,4 @@ if __name__ == '__main__':
 
     # TODO: Spin while node is not shutdown
     while not rospy.is_shutdown():
-  	rospy.spin()
+        rospy.spin()
